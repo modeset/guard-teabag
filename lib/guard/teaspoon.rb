@@ -17,7 +17,7 @@ module Guard
         keep_failed:     true,
         formatters:      "clean",
         run_all:         {},
-        run_on_changes:  {}
+        run_on_modifications:  {}
       }.merge(options)
       reload
 
@@ -45,12 +45,12 @@ module Guard
       @failed_paths = []
     end
 
-    def run_on_changes(original_paths)
+    def run_on_modifications(original_paths)
       @resolver.resolve(original_paths)
 
       failed = false
       @resolver.suites.each do |suite, files|
-        failed = @runner.run(files, @options[:run_on_changes].merge(suite: suite))
+        failed = @runner.run(files, @options[:run_on_modifications].merge(suite: suite))
       end
 
       if failed
