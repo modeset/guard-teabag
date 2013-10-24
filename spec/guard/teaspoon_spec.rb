@@ -22,7 +22,7 @@ describe Guard::Teaspoon do
         keep_failed:     true,
         formatters:      "clean",
         run_all:         {},
-        run_on_changes:  {},
+        run_on_modifications:  {},
         other_option:    "foo"
       })
     end
