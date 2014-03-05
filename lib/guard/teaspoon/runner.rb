@@ -17,13 +17,8 @@ module Guard
         end
       end
 
-      def run_all(options = {})
+      def run(options)
         @console.execute(@options.merge(options))
-      end
-
-      def run(files = [], options = {})
-        return false if files.empty?
-        @console.execute(@options.merge(options), files)
       end
 
       private
