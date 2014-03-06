@@ -7,5 +7,6 @@ coverage/
 
 spec/dummy/log/*.log
 spec/dummy/tmp/
+spec/dummy/Guardfile
 spec/dummy/.sass-cache
 Gemfile.lock
