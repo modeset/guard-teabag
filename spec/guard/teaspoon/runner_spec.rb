@@ -25,22 +25,6 @@ describe Guard::Teaspoon::Runner do
 
   end
 
-  describe "#run_all" do
-
-    let(:console) { double(execute: nil) }
-
-    before do
-      subject.console = console
-      subject.instance_variable_set(:@options, {foo: "bar"})
-    end
-
-    it "calls execute on console" do
-      console.should_receive(:execute).with({foo: "bar", baz: "teaspoon"})
-      subject.run_all(baz: "teaspoon")
-    end
-
-  end
-
   describe "#run" do
 
     let(:console) { double(execute: nil) }
@@ -51,16 +35,9 @@ describe Guard::Teaspoon::Runner do
     end
 
     it "calls execute on console" do
-      files = ["file1", "file2"]
-      console.should_receive(:execute).with({foo: "bar", baz: "teaspoon"}, files)
-      subject.run(files, baz: "teaspoon")
-    end
-
-    it "does nothing if there's no paths" do
-      console.should_not_receive(:execute)
-      subject.run([], baz: "teaspoon")
+      console.should_receive(:execute).with({foo: "bar", baz: "teaspoon"})
+      subject.run(baz: "teaspoon")
     end
 
   end
-
 end

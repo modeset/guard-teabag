@@ -38,8 +38,7 @@ describe Guard::Teaspoon do
       subject.start
     end
 
-    it "creates a resolver, and a runner" do
-      Guard::Teaspoon::Resolver.should_receive(:new)
+    it "creates a runner" do
       Guard::Teaspoon::Runner.should_receive(:new)
       subject.start
     end
@@ -69,23 +68,10 @@ describe Guard::Teaspoon do
       subject.runner = runner
     end
 
-    it "calls #run_all on the runner" do
-      runner.should_receive(:run_all).and_return(true)
+    it "calls #run on the runner" do
+      runner.should_receive(:run).and_return(true)
       subject.run_all
     end
-
-    it "resets failed_paths if all tests passed" do
-      subject.failed_paths = ["1", "2"]
-      runner.should_receive(:run_all).and_return(true)
-      subject.run_all
-      expect(subject.failed_paths).to eq([])
-    end
-
-    it "throws :task_has_failed if the tests didn't pass" do
-      runner.should_receive(:run_all).and_return(false)
-      expect { subject.run_all }.to raise_error(ArgumentError)
-    end
-
   end
 
   describe "#reload" do
