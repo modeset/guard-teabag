@@ -16,7 +16,8 @@ module Guard
         keep_failed:          true,
         formatters:           'clean',
         run_all:              {},
-        run_on_modifications: {}
+        run_on_modifications: {},
+        show_modified_files:  true
       }.merge(options)
     end
 

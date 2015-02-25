@@ -61,10 +61,16 @@ describe Guard::Teaspoon::Runner do
       subject.run([], baz: "teaspoon")
     end
 
-    it 'logs the files that are being run' do
+    it 'shows modified files when the show_modified_files is set' do
       files = ["file1", "file2"]
       expect(Guard::Compat::UI).to receive(:info).with("Running files: file1, file2")
-      subject.run(files, baz: "teaspoon")
+      subject.run(files, show_modified_files: true)
+    end
+
+    it 'does not show modified files when the show_modified_files is set to false' do
+      files = ["file1", "file2"]
+      expect(Guard::Compat::UI).not_to receive(:info)
+      subject.run(files, show_modified_files: false)
     end
 
   end

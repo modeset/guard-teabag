@@ -23,8 +23,9 @@ module Guard
 
       def run(files = [], options = {})
         return false if files.empty?
-        Compat::UI.info "Running files: " + files.join(', ')
-        @console.execute(@options.merge(options).merge(files: files))
+        run_options = @options.merge(options).merge(files: files)
+        Compat::UI.info "Running files: " + files.join(', ') if run_options[:show_modified_files]
+        @console.execute(run_options)
       end
 
       private
