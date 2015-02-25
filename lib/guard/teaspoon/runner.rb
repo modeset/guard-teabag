@@ -18,8 +18,6 @@ module Guard
       end
 
       def run_all(options = {})
-        # run all tests instead of running only the last run tests
-        @options.delete :files
         @console.execute(@options.merge(options))
       end
 
