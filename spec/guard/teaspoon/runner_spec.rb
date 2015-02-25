@@ -61,6 +61,12 @@ describe Guard::Teaspoon::Runner do
       subject.run([], baz: "teaspoon")
     end
 
+    it 'logs the files that are being run' do
+      files = ["file1", "file2"]
+      expect(Guard::Compat::UI).to receive(:info).with("Running files: file1, file2")
+      subject.run(files, baz: "teaspoon")
+    end
+
   end
 
 end
