@@ -61,16 +61,16 @@ describe Guard::Teaspoon::Runner do
       subject.run([], baz: "teaspoon")
     end
 
-    it 'shows modified files when the show_modified_files is set' do
+    it 'shows filenames when the show_filenames flag is set' do
       files = ["file1", "file2"]
       expect(Guard::Compat::UI).to receive(:info).with("Running files: file1, file2")
-      subject.run(files, show_modified_files: true)
+      subject.run(files, show_filenames: true)
     end
 
-    it 'does not show modified files when the show_modified_files is set to false' do
+    it 'does not show filenames when the show_filenames flag is set to false' do
       files = ["file1", "file2"]
       expect(Guard::Compat::UI).not_to receive(:info)
-      subject.run(files, show_modified_files: false)
+      subject.run(files, show_filenames: false)
     end
 
   end

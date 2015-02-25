@@ -92,7 +92,13 @@ end
 
 ### Available Options
 
-...document when this is better hammered out...
+```ruby
+focus_on_failed: true     # Focus on the first 10 failed specs first, rerun till they pass, default: false
+all_after_pass: true      # Run all tests after changed tests pass, default: true
+all_on_start: true        # Run all the tests at startup, default: true
+keep_failed: true         # Keep failed tests until they pass, default: true
+show_filenames: true      # Show the names of files that are being run, default: true
+```
 
 
 ## License
@@ -104,4 +110,3 @@ Copyright 2014 [Mode Set](https://github.com/modeset)
 
 ## Make Code Not War
 ![crest](https://secure.gravatar.com/avatar/aa8ea677b07f626479fd280049b0e19f?s=75)
-

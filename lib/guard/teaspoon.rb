@@ -17,7 +17,7 @@ module Guard
         formatters:           'clean',
         run_all:              {},
         run_on_modifications: {},
-        show_modified_files:  true
+        show_filenames:       true
       }.merge(options)
     end
 

@@ -22,7 +22,7 @@ describe Guard::Teaspoon do
         formatters:           'clean',
         run_all:              {},
         run_on_modifications: {},
-        show_modified_files:  true,
+        show_filenames:       true,
         other_option:         'foo'
       })
     end
