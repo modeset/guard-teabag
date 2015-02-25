@@ -24,7 +24,7 @@ module Guard
       reload
       @resolver = Resolver.new(@options)
       @runner = Runner.new(@options)
-      UI.info "Guard::Teaspoon is running"
+      Compat::UI.info "Guard::Teaspoon is running"
       run_all if @options[:all_on_start]
     end
 

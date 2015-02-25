@@ -8,7 +8,6 @@ describe Guard::Teaspoon do
   before do
     Guard::Teaspoon::Resolver.stub(:new)
     Guard::Teaspoon::Runner.stub(:new)
-    Guard::Compat::UI.stub(:notify)
   end
 
   describe "#initialize" do
@@ -31,7 +30,6 @@ describe Guard::Teaspoon do
   describe "#start" do
     before do
       subject.stub(:run_all)
-      Guard::UI.stub(:info)
     end
 
     it "calls reload" do
@@ -46,7 +44,7 @@ describe Guard::Teaspoon do
     end
 
     it "logs that we're starting" do
-      Guard::UI.should_receive(:info).with("Guard::Teaspoon is running")
+      Guard::Compat::UI.should_receive(:info).with("Guard::Teaspoon is running")
       subject.start
     end
 

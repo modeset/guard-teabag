@@ -18,4 +18,10 @@ Dir[File.expand_path("../support/**/*.rb", __FILE__)].each { |f| require f }
 RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"
+
+  config.before(:each) do
+    Guard::Compat::UI.stub(:notify)
+    Guard::Compat::UI.stub(:info)
+    Guard::Compat::UI.stub(:error)
+  end    
 end
