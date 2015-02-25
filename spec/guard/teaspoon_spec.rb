@@ -8,6 +8,7 @@ describe Guard::Teaspoon do
   before do
     Guard::Teaspoon::Resolver.stub(:new)
     Guard::Teaspoon::Runner.stub(:new)
+    Guard::Compat::UI.stub(:notify)
   end
 
   describe "#initialize" do
